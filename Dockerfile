@@ -4,14 +4,14 @@ FROM java:8
 
 MAINTAINER Jayson Reis <santosdosreis@gmail.com>
 
-ENV VERSION=3.0.6
+ENV VERSION=3.0.8
 
 RUN apt-get update && apt-get install -y wget unzip
 RUN addgroup --gid 1234 minecraft
 RUN adduser --disabled-password --home=/data --uid 1234 --gid 1234 --gecos "minecraft user" minecraft
 
 RUN mkdir /tmp/feed-the-beast && cd /tmp/feed-the-beast && \
-	wget -c https://addons-origin.cursecdn.com/files/2373/70/FTBPresentsSkyfactory3Server_${VERSION}.zip -O FTBInfinityServer.zip && \
+	wget -c http://addons.cursecdn.com/files/2390/76/FTBPresentsSkyfactory3Server_${VERSION}.zip -O FTBInfinityServer.zip && \
 	unzip FTBInfinityServer.zip && \
 	rm FTBInfinityServer.zip && \
 	bash -x FTBInstall.sh && \
